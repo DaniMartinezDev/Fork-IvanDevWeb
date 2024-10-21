@@ -1,0 +1,21 @@
+---
+import Posts from '../components/posts.astro'
+import Navbar from '../components/navbar.astro'
+import Hero from '../components/hero.astro'
+---
+
+<html lang="es" data-bs-theme="dark">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Ivan FX</title>
+	</head>
+	<body>
+		<Navbar/>
+		<Hero/>
+		<br><br>
+		<Posts/>						
+	</body>
+</html>
