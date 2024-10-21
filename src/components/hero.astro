@@ -1,21 +1,54 @@
-<div class="container py-6">
-	<div class="row flex-lg-row-reverse align-items-center g-5">
-		<div class="col-10 mx-auto col-sm-8 col-lg-6">
-			<img src="https://i.blogs.es/389033/programming/1366_2000.jpg" class="d-block mx-lg-auto img-fluid" alt="" loading="lazy" style="border-radius: 10px;">
-		</div>
-		<div class="col-lg-6">
-			<div class="lc-block mb-3">
-				<h2 class="fw-bold display-5">Ivan FX</h2>
-			</div>
+<style>
+    /* Estilos para el Hero */
+    .hero {
+        padding: 60px 20px;
+        text-align: center;
+    }
 
-			<div class="lc-block mb-3">
-				<p class="lead">En esta página encontrarás toda la información que necesitas sobre desarrollo web, programación de bots para Discord, y mucho más. Descubre tutoriales, recursos útiles, y herramientas para llevar tus proyectos al siguiente nivel, tanto si estás empezando como si ya tienes experiencia en el mundo del código.</p>
-			</div>
+    .hero img {
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 9999px;
+    }
 
-			<div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
-				<a class="btn btn-primary px-4 me-md-2" href="blog/" role="button">Ir al Blog</a>
-				<a class="btn btn-outline-secondary px-4" href="#" role="button">Mis Conocimientos</a>
-			</div>
-		</div>
-	</div>
-</div>
+    h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #6c757d;
+        margin-bottom: 30px;
+    }
+
+    .btn-custom {
+        font-size: 1rem;
+		padding: 10px 20px;
+        background-color: #0099ff;
+        color: white;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-custom:hover {
+        background-color: #0099ff;
+        color: white;
+        box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.7);
+    }
+
+    .limited-width {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+</style>
+
+<!-- Hero Section -->
+<section class="hero text-center">
+    <img src="https://i.imgur.com/vyKibgA.png" alt="Logo" class="img-fluid" style="box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.7);">
+    <h1>Ivan FX</h1>
+    <p class="limited-width my-5">En esta página encontrarás toda la información que necesitas sobre desarrollo web, programación de bots para Discord, y mucho más. Descubre tutoriales, recursos útiles, y herramientas para llevar tus proyectos al siguiente nivel, tanto si estás empezando como si ya tienes experiencia en el mundo del código.</p>
+    <a href="#about" class="btn btn-custom">Documentación</a>
+    <a href="#about" class="btn btn-custom">Contacto</a>
+</section>
