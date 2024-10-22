@@ -1,0 +1,73 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Navbar from "../../components/navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  const blogEntries: CollectionEntry<"posts">[] = await getCollection("posts");
+
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/icon.png" />
+    <title>{entry.data.title}</title> <!-- Utiliza entry.data.title para acceder al título del post -->
+    <!-- Cargar Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <Navbar/>
+
+    <!-- Contenedor con márgenes y espaciado -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <article class="card shadow-sm">
+                    <div class="card-body">
+                        <h1 class="card-title">{entry.data.title}</h1>
+                        <p class="text-muted">Publicado el: {entry.data.createdAt}</p>
+                        <hr>
+                        <div class="content">
+                            <Content />
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <h4>Comentarios</h4>
+                        <div class="comments-section">
+                            <script src="https://utteranc.es/client.js"
+                                repo="ElIvanFX/newweb"
+                                issue-term="pathname"
+                                theme="icy-dark"
+                                crossorigin="anonymous"
+                                async>
+                            </script>
+                        </div>
+                    </div>                    
+                </article>
+            </div>
+        </div>
+    </div>
+    <style>
+        .comments-section {
+            margin-right: 500px; /* Asegura que el script esté alineado con el borde izquierdo */
+        }
+    </style>
+    
+
+    <Footer/>
+
+    <!-- Script de Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
