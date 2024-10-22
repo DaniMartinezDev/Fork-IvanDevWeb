@@ -1,5 +1,5 @@
 ---
-title: "¡Bienvenidos a Nuestro Blog!"
+title: "¡Bienvenidos a Nuestra Página!"
 image: "https://i.imgur.com/vyKibgA.png"
 description: "Bienvenidos al blog oficial de Ivan FX..."
 createdAt: "20 oct 2024"
