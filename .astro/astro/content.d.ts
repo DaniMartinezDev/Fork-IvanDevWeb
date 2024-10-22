@@ -140,15 +140,7 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"post": Record<string, {
-  id: string;
-  slug: string;
-  body: string;
-  collection: "post";
-  data: any;
-  render(): Render[".md"];
-}>;
-"posts": {
+		"posts": {
 "introduccion-al-blog.md": {
 	id: "introduccion-al-blog.md";
   slug: "introduccion-al-blog";
@@ -166,5 +158,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("./../../src/content/config.mjs");
+	export type ContentConfig = typeof import("./../../src/content/config.js");
 }
