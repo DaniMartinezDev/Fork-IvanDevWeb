@@ -1,0 +1,27 @@
+---
+// Card.astro
+---
+<div class="col-md-4 mb-4">
+    <div class="card" style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+      <img src="https://via.placeholder.com/300" class="card-img-top" alt="Imagen de ejemplo">
+      <div class="card-body">
+        <h5 class="card-title">Título de la Tarjeta</h5>
+        <p class="card-text">Breve descripción sobre el contenido de la tarjeta. Aquí puedes agregar más información relevante.</p>
+        <a href="#" class="btn btn-primary" style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">Leer más</a>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+</div>  
+
+<style>
+    .btn {
+        transition: transform 0.3s ease; /* Transición suave para el efecto de zoom */
+    }
+
+    .btn:hover {
+        transform: scale(1.05); /* Aumenta el tamaño del card al pasar el mouse */
+    }
+
+</style>
