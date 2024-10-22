@@ -1,6 +1,7 @@
 ---
 title: "¡Bienvenidos a Nuestro Blog!"
 image: "https://i.imgur.com/vyKibgA.png"
+description: "Bienvenidos al blog oficial de Ivan FX..."
 createdAt: "20 oct 2024"
 updatedAt: "20 oct 2024"
 ---
