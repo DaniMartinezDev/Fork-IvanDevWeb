@@ -1,0 +1,62 @@
+---
+import Navbar from "../components/navbar.astro";
+---
+
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+</head>
+<body>
+    <Navbar/>
+</body>
+</html>
+
+<style is:global>
+    /* Estilos para el Hero */
+    .hero {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .hero img {
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 9999px;
+    }
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #6c757d;
+        margin-bottom: 30px;
+    }
+
+    .btn-custom {
+        font-size: 1rem;
+		padding: 10px 20px;
+        background-color: #0099ff;
+        color: white;
+		transition: transform 0.3s ease; 
+    }
+
+    .btn-custom:hover {
+        background-color: #0099ff;
+        color: white;
+		transform: scale(1.05);
+    }
+
+    .limited-width {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+</style>

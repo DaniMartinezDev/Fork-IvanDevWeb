@@ -1,4 +1,5 @@
 ---
+// Importar colecciones
 import { getCollection, type CollectionEntry } from "astro:content";
 const blogEntries: CollectionEntry<"posts">[] = await getCollection("posts");
 
@@ -6,11 +7,12 @@ const blogEntries: CollectionEntry<"posts">[] = await getCollection("posts");
 blogEntries.sort((a, b) => new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime());
 ---
 
+<!-- Asegurar que el row esté centrado solo en pantallas pequeñas -->
 <div class="row">
   {
     blogEntries.map((b) => {
       return (
-        <div class="col-md-4 col-sm-6 col-12 mb-4"> {/* Ocupa 4 columnas en pantallas medianas, 6 en pantallas pequeñas, 12 en móviles */}
+        <div class="col-md-4 col-sm-6 col-12 mb-4"> {/* Eliminar mx-auto aquí */}
           <div class="card h-100" style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
             <img src={b.data.image} class="card-img-top" style="width: auto; height: 150px; object-fit: cover;">
             <div class="card-body d-flex flex-column">
@@ -38,9 +40,11 @@ blogEntries.sort((a, b) => new Date(b.data.createdAt).getTime() - new Date(a.dat
     transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
   }
 
+  /* Asegurar que los cards estén centrados en móviles */
   @media (max-width: 576px) {
-    .card {
-      margin-bottom: 1rem; /* Espacio entre tarjetas en pantallas móviles */
+    .col-12 {
+      display: flex;
+      justify-content: center; /* Centrar los cards en pantallas móviles */
     }
   }
 </style>
