@@ -1,5 +1,6 @@
 ---
 title: "¡Bienvenidos a Nuestro Blog!"
+image: "https://i.imgur.com/vyKibgA.png"
 createdAt: "20 oct 2024"
 updatedAt: "20 oct 2024"
 ---
