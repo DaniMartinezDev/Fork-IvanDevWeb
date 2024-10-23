@@ -40,4 +40,8 @@ Nos gustaría escuchar tu opinión. Una vez que la documentación esté disponib
 
 Gracias por tu apoyo continuo. ¡Estamos emocionados de compartir este recurso contigo!
 
+# Preview
+
+<img src="https://i.imgur.com/JiYpnDK.png" alt="Logo" class="img-fluid" style="width: 1000px; height: auto; object-fit: cover;">
+
 ---
