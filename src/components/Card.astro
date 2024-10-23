@@ -1,11 +1,17 @@
 ---
-// Importar colecciones
+// Importar colecciones y la función de formateo de fechas
 import { getCollection, type CollectionEntry } from "astro:content";
+
+// Función para convertir fecha en formato Date a "DD MMM AAAA"
+function formatDate(dateObj: Date): string {
+  const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' };
+  return dateObj.toLocaleDateString('es-MX', options); // 'es-ES' para formato en español
+}
 
 const blogEntries: CollectionEntry<"posts">[] = await getCollection("posts");
 
 // Ordenar los artículos del más reciente al más antiguo
-blogEntries.sort((a, b) => new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime());
+blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime());
 ---
 
 <!-- Asegurar que el row esté centrado solo en pantallas pequeñas -->
@@ -21,9 +27,9 @@ blogEntries.sort((a, b) => new Date(b.data.createdAt).getTime() - new Date(a.dat
             <a href={`/blog/${b.slug}`} class="btn btn-primary mt-auto" style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">Leer más</a>
           </div>
           <div class="card-footer">
-            <small class="text-muted">Publicado el: {b.data.createdAt}</small>
+            <small class="text-muted">Publicado el: {formatDate(b.data.createdAt)}</small>
             <br />
-            <small class="text-muted">Actualizado el: {b.data.updatedAt}</small>
+            <small class="text-muted">Actualizado el: {formatDate(b.data.updatedAt)}</small>
           </div>
         </div>
       </div>
@@ -32,11 +38,20 @@ blogEntries.sort((a, b) => new Date(b.data.createdAt).getTime() - new Date(a.dat
 </div>
 
 <style>
-  .btn {
-    transition: transform 0.3s ease; /* Transición suave para el efecto de zoom */
+  .card {
+    transition: all 0.3s ease-out;
   }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .btn {
+    transition: transform 0.3s ease;
+  }
+  
   .btn:hover {
-    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    transform: scale(1.05);
   }
 
   /* Asegurar que los cards estén centrados en móviles */

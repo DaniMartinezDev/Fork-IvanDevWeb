@@ -14,8 +14,14 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
----
 
+// Función para formatear la fecha en un formato más legible
+const formattedDate = new Intl.DateTimeFormat('es-MX', { 
+  year: 'numeric', 
+  month: 'long', 
+  day: 'numeric' 
+}).format(new Date(entry.data.createdAt));
+---
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
@@ -45,15 +51,39 @@ const { Content } = await entry.render();
             margin-bottom: 40px;
         }
 
-        hr {
-            border-color: var(--bs-divider-color); /* Color del separador dinámico */
-        }
-
+        /* Estilos para el contenido */
         .content {
-            line-height: 1.7;
+            line-height: 1.8;
             font-size: 1.1rem;
+            margin-top: 20px;
         }
 
+        /* Estilo para las imágenes dentro del contenido */
+        .content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        /* Listas dentro del contenido */
+        .content ul, .content ol {
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+
+        /* Citas dentro del contenido */
+        blockquote {
+            padding: 10px 20px;
+            margin: 20px 0;
+            border-left: 5px solid #00c6ff;
+            background-color: rgba(0, 198, 255, 0.1);
+            border-radius: 5px;
+            font-style: italic;
+            color: var(--bs-body-color);
+        }
+
+        /* Código */
         pre {
             background-color: #1e1e1e;
             color: #f8f8f2;
@@ -61,10 +91,14 @@ const { Content } = await entry.render();
             border-radius: 10px;
             overflow-x: auto;
             margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         code {
             color: #66d9ef;
+            background-color: #1e1e1e;
+            padding: 2px 6px;
+            border-radius: 5px;
         }
 
         .card-footer {
@@ -84,6 +118,11 @@ const { Content } = await entry.render();
             background-color: #00a3cc;
         }
 
+        /* Ajustes para citas */
+        hr {
+            border-color: var(--bs-divider-color); /* Color del separador dinámico */
+            margin: 40px 0;
+        }
     </style>
 </head>
 <body>
@@ -96,7 +135,7 @@ const { Content } = await entry.render();
                 <article class="card">
                     <div class="card-body">
                         <h1 class="card-title">{entry.data.title}</h1>
-                        <p class="text-muted">Publicado el: {entry.data.createdAt}</p>
+                        <p class="text-muted">Publicado el: {formattedDate}</p>
                         <hr class="my-4">
                         <div class="content">
                             <Content />

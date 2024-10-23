@@ -4,8 +4,8 @@ const articlesCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    createdAt: z.string(),
-    updatedAt: z.string(),
+    createdAt: z.date(),
+    updatedAt: z.date(),
     image: z.string(),
     description: z.string(),
   }),
