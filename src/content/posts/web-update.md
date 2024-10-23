@@ -2,8 +2,8 @@
 title: "Nuevo apartado de Docs"
 image: "https://ifxstudios.netlify.app/images/pic01.jpg"
 description: "Nos complace anunciar que muy pronto estarán disponibles los documentos de nuestra plataforma...."
-createdAt: 2024-10-21T21:00:00-06:00
-updatedAt: 2024-10-21T21:00:00-06:00
+createdAt: 2024-10-22T21:52:00.000Z
+updatedAt: 2024-10-22T21:52:00.000Z
 ---
 # ¡Próximamente! Documentación Disponible
 

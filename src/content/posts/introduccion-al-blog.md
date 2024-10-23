@@ -2,8 +2,8 @@
 title: "¡Bienvenidos a Nuestra Página!"
 image: "https://ifxstudios.netlify.app/images/pic02.jpg"
 description: "Bienvenidos al blog oficial de Ivan FX..."
-createdAt: 2024-10-20T21:00:00-06:00
-updatedAt: 2024-10-20T21:00:00-06:00
+createdAt: 2024-10-20T18:42:00.000Z
+updatedAt: 2024-10-22T21:52:00.000Z
 ---
 ## ¡Hola a todos! 👋
 
