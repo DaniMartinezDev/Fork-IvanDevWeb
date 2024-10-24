@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import Navbar from "../../components/navbar.astro";
 import Footer from "../../components/Footer.astro";
+import "../../css/styles.css";
 
 export async function getStaticPaths() {
   const blogEntries: CollectionEntry<"posts">[] = await getCollection("posts");
@@ -15,152 +16,50 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-// Función para formatear la fecha en un formato más legible
+// Función para formatear la fecha
 const formattedDate = new Intl.DateTimeFormat('es-MX', { 
   year: 'numeric', 
   month: 'long', 
   day: 'numeric' 
 }).format(new Date(entry.data.createdAt));
 ---
+
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="es" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="/icon.png" />
     <title>{entry.data.title} - Ivan FX</title>
-    <!-- Cargar Bootstrap -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: var(--bs-body-bg); /* Se ajusta automáticamente al tema */
-            color: var(--bs-body-color); /* Texto también se ajusta */
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* Estilos para la tarjeta */
-        .card {
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            background-color: var(--bs-card-bg); /* Dependiendo del tema */
-            color: var(--bs-card-color);
-        }
-
-        .container {
-            margin-top: 40px;
-            margin-bottom: 40px;
-        }
-
-        /* Estilos para el contenido */
-        .content {
-            line-height: 1.8;
-            font-size: 1.1rem;
-            margin-top: 20px;
-        }
-
-        /* Estilo para las imágenes dentro del contenido */
-        .content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-
-        /* Listas dentro del contenido */
-        .content ul, .content ol {
-            margin-left: 20px;
-            padding-left: 20px;
-        }
-
-        /* Citas dentro del contenido */
-        blockquote {
-            padding: 10px 20px;
-            margin: 20px 0;
-            border-left: 5px solid #00c6ff;
-            background-color: rgba(0, 198, 255, 0.1);
-            border-radius: 5px;
-            font-style: italic;
-            color: var(--bs-body-color);
-        }
-
-        /* Código */
-        pre {
-            background-color: #1e1e1e;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 10px;
-            overflow-x: auto;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        code {
-            color: #66d9ef;
-            background-color: #1e1e1e;
-            padding: 2px 6px;
-            border-radius: 5px;
-        }
-
-        .card-footer {
-            background-color: var(--bs-card-footer-bg);
-            border-top: 1px solid var(--bs-divider-color);
-            padding: 20px;
-        }
-
-        /* Botones */
-        .btn-primary {
-            background-color: #00c6ff;
-            border: none;
-            box-shadow: 0 4px 12px rgba(0, 198, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            background-color: #00a3cc;
-        }
-
-        /* Ajustes para citas */
-        hr {
-            border-color: var(--bs-divider-color); /* Color del separador dinámico */
-            margin: 40px 0;
-        }
-    </style>
 </head>
 <body>
-    <Navbar/>
 
-    <!-- Contenedor con márgenes y espaciado -->
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <article class="card">
-                    <div class="card-body">
-                        <h1 class="card-title">{entry.data.title}</h1>
-                        <p class="text-muted">Publicado el: {formattedDate}</p>
-                        <hr class="my-4">
-                        <div class="content">
-                            <Content />
-                        </div>
-                    </div>
-                    <div class="card-footer text-muted text-center">
-                        <h4>Comentarios</h4>
-                        <div class="comments-section">
-                            <script src="https://utteranc.es/client.js"
-                                repo="ElIvanFX/newweb"
-                                issue-term="pathname"
-                                theme="icy-dark"
-                                crossorigin="anonymous"
-                                async>
-                            </script>
-                        </div>
-                    </div>                    
-                </article>
-            </div>
+    <Navbar />
+
+    <div class="post-conte">
+        <h1>{entry.data.title}</h1>
+        <p class="post-date">Publicado el {formattedDate}</p>
+        <hr>
+        <div class="content">
+            <Content />
+        </div>
+        <hr>
+
+        <div class="comments-section">
+            <h4>Comentarios</h4>
+            <script src="https://utteranc.es/client.js"
+                repo="ElIvanFX/newweb"
+                issue-term="pathname"
+                theme="dark-blue"
+                crossorigin="anonymous"
+                async>
+            </script>
         </div>
     </div>
 
-    <Footer/>
+    <Footer />
 
     <!-- Script de Bootstrap -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fast-bootstrap@latest/dist/js/fast-bootstrap.bundle.min.js"></script>
 </body>
 </html>

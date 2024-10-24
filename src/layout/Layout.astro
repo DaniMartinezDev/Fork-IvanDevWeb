@@ -8,42 +8,10 @@ import Navbar from "../components/navbar.astro";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/fastbootstrap@2.2.0/dist/css/fastbootstrap.min.css" rel="stylesheet" integrity="sha256-V6lu+OdYNKTKTsVFBuQsyIlDiRWiOmtC8VQ8Lzdm2i4=" crossorigin="anonymous">
     <title>Layout</title>
 </head>
 <body>
     <Navbar/>
 </body>
 </html>
-
-<style is:global>
-    h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-    }
-
-    p {
-        font-size: 1.2rem;
-        color: #6c757d;
-        margin-bottom: 30px;
-    }
-
-    .btn-custom {
-        font-size: 1rem;
-		padding: 10px 20px;
-        background-color: #0099ff;
-        color: white;
-		transition: transform 0.3s ease; 
-    }
-
-    .btn-custom:hover {
-        background-color: #0099ff;
-        color: white;
-		transform: scale(1.05);
-    }
-
-    .limited-width {
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-</style>

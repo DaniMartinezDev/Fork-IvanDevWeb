@@ -29,25 +29,33 @@
 		padding: 10px 20px;
         background-color: #0099ff;
         color: white;
-		transition: transform 0.3s ease;
+		transition: all 0.3s ease-out;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .btn-custom:hover {
         background-color: #0099ff;
         color: white;
-		transform: scale(1.05);
+		transform: scale(1.05) rotate(-2deg);
     }
 
     .limited-width {
         max-width: 1000px;
         margin: 0 auto;
     }
+
+    .image-hover{
+        transition: all 0.3s ease-out;
+    }
+
+    .image-hover:hover{
+        transform: scale(1.05)
+    }
 </style>
 
 <!-- Hero Section -->
 <section class="hero text-center">
-    <img src="https://i.imgur.com/vyKibgA.png" alt="Logo" class="img-fluid" style="box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.7);">
+    <img src="https://i.imgur.com/vyKibgA.png" alt="Logo" class="img-fluid image-hover" style="box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.7);">
     <h1>Ivan FX</h1>
     <p class="limited-width my-5">En esta página encontrarás toda la información que necesitas sobre desarrollo web, programación de bots para Discord, y mucho más. Descubre tutoriales, recursos útiles, y herramientas para llevar tus proyectos al siguiente nivel, tanto si estás empezando como si ya tienes experiencia en el mundo del código.</p>
     <a href="/docs" class="btn btn-custom">Documentación</a>

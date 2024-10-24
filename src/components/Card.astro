@@ -47,11 +47,11 @@ blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime
   }
 
   .btn {
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease-out;
   }
   
   .btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(-2deg);
   }
 
   /* Asegurar que los cards estén centrados en móviles */

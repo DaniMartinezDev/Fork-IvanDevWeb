@@ -43,5 +43,3 @@ Gracias por tu apoyo continuo. ¡Estamos emocionados de compartir este recurso c
 # Preview
 
 <img src="https://i.imgur.com/JiYpnDK.png" alt="Logo" class="img-fluid" style="width: 1000px; height: auto; object-fit: cover;">
-
----

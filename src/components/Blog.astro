@@ -17,7 +17,7 @@ blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime
 <!-- Asegurar que el row esté centrado solo en pantallas pequeñas -->
 <div class="row">
   {
-    blogEntries.slice(0, 3).map((b) => (
+    blogEntries.map((b) => (
       <div class="col-md-4 col-sm-6 col-12 mb-4"> {/* Eliminar mx-auto aquí */}
         <div class="card h-100" style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
           <img src={b.data.image} class="card-img-top" style="width: auto; height: 150px; object-fit: cover;" alt={b.data.title} />
@@ -47,11 +47,11 @@ blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime
   }
 
   .btn {
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease-out;
   }
   
   .btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(-2deg);
   }
 
   /* Asegurar que los cards estén centrados en móviles */
