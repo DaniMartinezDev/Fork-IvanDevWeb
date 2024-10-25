@@ -51,6 +51,13 @@ import Footer from '../components/Footer.astro';
                 justify-content: center; /* Centrar los cards en pantallas móviles */
              }
         }
+
+        .btn {
+            transition: transform 0.3s ease; /* Transición suave para el efecto de zoom */
+        }
+        .btn:hover {
+            transform: scale(1.05) rotate(-2deg); /* Efecto de zoom al pasar el mouse */
+         }
     </style>
 </head>
 <body>
