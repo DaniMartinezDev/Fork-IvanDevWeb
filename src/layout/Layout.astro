@@ -1,5 +1,4 @@
 ---
-import Navbar from "../components/navbar.astro";
 ---
 
 
@@ -12,6 +11,31 @@ import Navbar from "../components/navbar.astro";
     <title>Layout</title>
 </head>
 <body>
-    <Navbar/>
+    <style is:global>
+        .card {
+          transition: all 0.3s ease-out;
+          margin-left: 15px;
+        }
+      
+        .card:hover {
+          transform: scale(1.05);
+        }
+      
+        .btn {
+          transition: all 0.3s ease-out;
+        }
+        
+        .btn:hover {
+          transform: scale(1.05) rotate(-2deg);
+        }
+      
+        /* Asegurar que los cards estén centrados en móviles */
+        @media (max-width: 576px) {
+          .col-12 {
+            justify-content: center;
+            margin-left: 9px;
+          }
+        }
+    </style>
 </body>
 </html>

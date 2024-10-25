@@ -1,6 +1,6 @@
 ---
 title: "¡Bienvenidos a Nuestra Página!"
-image: "https://ifxstudios.netlify.app/images/pic02.jpg"
+image: "https://static.vecteezy.com/system/resources/previews/010/481/419/non_2x/welcome-letters-banner-stock-banner-vector.jpg"
 description: "Bienvenidos al blog oficial de Ivan FX..."
 createdAt: 2024-10-20T18:42:00.000Z
 updatedAt: 2024-10-22T21:52:00.000Z

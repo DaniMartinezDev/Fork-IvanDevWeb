@@ -1,47 +1,127 @@
 ---
-
+import DocsLink from "../components/DocsLink.astro";
 ---
 
 <div class="container my-5">
-    <div class="row">
-      <aside class="col-md-3 mb-3">
-        <!-- Botón para alternar el menú en dispositivos móviles -->
-        <button
-          class="btn btn-outline-primary d-md-none mb-3"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#sidebarMenu"
-          aria-expanded="false"
-          aria-controls="sidebarMenu"
-        >
-          <span>&#x25BC;</span> Menú
-        </button>
-        <div class="collapse d-md-block" id="sidebarMenu">
-          <h5 class="mb-3">Temas</h5>
-          <ul class="list-group border-0">
-            <li class="list-group-item">
-              <p class="fw-bold">HTML</p>
-              <ul class="list-unstyled">
-                <li><a class="text-decoration-none text-primary" href="#">Introducción</a></li>
-                <li><a class="text-decoration-none text-primary" href="#">Ejemplos</a></li>
-              </ul>
-            </li>
-            <li class="list-group-item">
-              <p class="fw-bold">Astro</p>
-            </li>
-            <li class="list-group-item">
-              <p class="fw-bold">CSS</p>
-            </li>
-            <li class="list-group-item">
-              <p class="fw-bold">JavaScript</p>
-            </li>
+  <div class="row">
+    <aside class="col-md-3 mb-3">
+      <!-- Botón para alternar el menú en dispositivos móviles -->
+      <button
+        class="btn btn-outline-primary d-md-none mb-3"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#sidebarMenu"
+        aria-expanded="false"
+        aria-controls="sidebarMenu"
+      >
+        <span>&#x25BC;</span> Menú
+      </button>
+      <div class="collapse d-md-block" id="sidebarMenu">
+        <h5 class="mb-3">Temas</h5>
+        <ul class="list-group border-0">
+          <li class="list-group-item">
+            <p class="fw-bold">HTML</p>
+            <ul class="list-unstyled">
+              <DocsLink topic="html" />
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <p class="fw-bold">Astro</p>
+            <ul class="list-unstyled">
+              <DocsLink topic="astro" />
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <p class="fw-bold">CSS</p>
+            <ul class="list-unstyled">
+              <DocsLink topic="css" />
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <p class="fw-bold">JavaScript</p>
+            <ul class="list-unstyled">
+              <DocsLink topic="javascript" />
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <main class="col-md-6">
+      <h2>Bienvenido a la Documentación</h2>
+      <p>
+        En esta sección de documentación, encontrarás guías y recursos detallados para dominar las herramientas y tecnologías esenciales del desarrollo web. Cada tema está diseñado para ofrecerte una base sólida y guiarte desde conceptos básicos hasta técnicas avanzadas. A continuación, te presentamos un vistazo a los temas que podrás explorar:
+      </p>
+    
+      <h3>Temas Disponibles:</h3>
+      <ul>
+        <li>
+          <strong>HTML:</strong> El lenguaje de marcado fundamental para cualquier sitio web. Aquí aprenderás:
+          <ul>
+            <li>Cómo estructurar contenido web de manera semántica y accesible.</li>
+            <li>Uso adecuado de elementos como encabezados, párrafos, enlaces, imágenes, tablas y formularios.</li>
+            <li>HTML5 y sus nuevas características, como elementos multimedia (<code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>) y la integración de <code>&lt;canvas&gt;</code> para gráficos en 2D.</li>
           </ul>
-        </div>
-      </aside>
-      <main class="col-md-9">
-        <h4 class="mb-4">Página en Desarrollo</h4>
-        <p class="text-muted">¡Estamos trabajando en esta sección! Regresa pronto para más actualizaciones.</p>
-      </main>
+        </li>
+    
+        <li>
+          <strong>Astro:</strong> Un framework moderno para crear sitios rápidos y optimizados. Aprenderás:
+          <ul>
+            <li>Cómo configurar proyectos con Astro y su estructura de archivos.</li>
+            <li>Creación de componentes reutilizables para una arquitectura organizada.</li>
+            <li>Uso de Markdown y cómo integrar contenido estático con componentes dinámicos.</li>
+          </ul>
+        </li>
+    
+        <li>
+          <strong>CSS:</strong> El lenguaje de estilos que permite darle vida y diseño a tus páginas. Aquí cubrirás:
+          <ul>
+            <li>Fundamentos del diseño con CSS, desde selectores básicos hasta layouts avanzados.</li>
+            <li>CSS Flexbox y Grid para crear diseños responsivos y adaptables.</li>
+            <li>Técnicas avanzadas como animaciones, pseudo-elementos, y diseño modular.</li>
+          </ul>
+        </li>
+    
+        <li>
+          <strong>JavaScript:</strong> El lenguaje que da interactividad a los sitios web. Aquí aprenderás:
+          <ul>
+            <li>Conceptos básicos de JavaScript, como variables, funciones y bucles.</li>
+            <li>Manipulación del DOM para crear experiencias interactivas y responder a eventos del usuario.</li>
+            <li>Programación asincrónica y el uso de APIs para traer datos externos a tu sitio web.</li>
+          </ul>
+        </li>
+      </ul>
+    
+      <h3>¿Qué puedes esperar de esta documentación?</h3>
+      <p>
+        Esta documentación está diseñada para ser accesible tanto para principiantes como para desarrolladores avanzados. Cada sección incluye ejemplos prácticos, mejores prácticas y ejercicios para poner en práctica tus conocimientos. Además, encontrarás tips adicionales para optimizar el rendimiento de tus sitios y hacer que sean accesibles para todos los usuarios.
+      </p>
+    
+      <p>
+        ¡Explora cada sección a tu propio ritmo y utiliza el menú de la izquierda para navegar entre los temas! Esperamos que esta guía te sea útil en tu viaje de aprendizaje en el desarrollo web.
+      </p>
+
+      <div class="comments-section">
+        <h4>Comentarios</h4>
+        <script src="https://utteranc.es/client.js"
+            repo="ElIvanFX/newweb"
+            issue-term="pathname"
+            theme="dark-blue"
+            crossorigin="anonymous"
+            async>
+        </script>
     </div>
+    </main>
+
+    <!-- Información Adicional solo visible en pantallas grandes -->
+    <aside class="col-md-3 mb-3 d-none d-md-block" style="width:250px">
+      <h5 class="mb-3">Información Adicional</h5>
+      <ul class="list-group border-0">
+        <li class="list-group-item"></li>
+        <li class="list-group-item"></li>
+        <li class="list-group-item"></li>
+        <li class="list-group-item"></li>
+      </ul>
+    </aside>
   </div>
+</div>
   

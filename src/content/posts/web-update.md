@@ -1,13 +1,14 @@
 ---
-title: "Nuevo apartado de Docs"
-image: "https://ifxstudios.netlify.app/images/pic01.jpg"
+title: "¡Documentacion Disponible!"
+image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDymuL3ZhgYQxc7YlS-Gc5cYjd-_pFSZQetA&s"
 description: "Nos complace anunciar que muy pronto estarán disponibles los documentos de nuestra plataforma...."
 createdAt: 2024-10-22T21:52:00.000Z
-updatedAt: 2024-10-22T21:52:00.000Z
+updatedAt: 2024-10-24T22:02:00.000Z
 ---
-# ¡Próximamente! Documentación Disponible
 
-Nos complace anunciar que muy pronto estarán disponibles los documentos de nuestra plataforma. Estos documentos estarán diseñados para ayudar a nuestros usuarios a navegar por nuestras herramientas y recursos de manera más efectiva, garantizando una experiencia de usuario óptima.
+## Documentación Disponible
+
+Nos complace anunciar que ya están disponibles los documentos de nuestra plataforma. Estos documentos estarán diseñados para ayudar a nuestros usuarios a navegar por nuestras herramientas y recursos de manera más efectiva, garantizando una experiencia de usuario óptima.
 
 ## ¿Por qué es importante la documentación?
 
@@ -40,6 +41,6 @@ Nos gustaría escuchar tu opinión. Una vez que la documentación esté disponib
 
 Gracias por tu apoyo continuo. ¡Estamos emocionados de compartir este recurso contigo!
 
-# Preview
-
-<img src="https://i.imgur.com/JiYpnDK.png" alt="Logo" class="img-fluid" style="width: 1000px; height: auto; object-fit: cover;">
+<div style="text-align: center;">
+  <a href="/docs" class="btn btn-primary" style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); padding: 10px 20px; text-decoration: none; color: white;">Ver Documentación</a>
+</div>

@@ -1,0 +1,105 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Navbar from "../../components/navbar.astro";
+import DocsLink from "../../components/DocsLink.astro";
+import Footer from '../../components/Footer.astro';
+import "../../css/styles.css";
+
+export async function getStaticPaths() {
+  const docsEntries: CollectionEntry<"docs">[] = await getCollection("docs");
+
+  return docsEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Función para formatear la fecha
+const formattedDate = new Intl.DateTimeFormat('es-MX', { 
+  year: 'numeric', 
+  month: 'long', 
+  day: 'numeric' 
+}).format(new Date(entry.data.createdAt));
+---
+
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/icon.png" />
+    <title>{entry.data.title} - Ivan FX</title>
+</head>
+<body>
+
+    <Navbar />
+    
+    <div class="container my-5">
+        <div class="row">
+          <aside class="col-md-3 mb-3">
+            <!-- Botón para alternar el menú en dispositivos móviles -->
+            <button
+              class="btn btn-outline-primary d-md-none mb-3"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#sidebarMenu"
+              aria-expanded="false"
+              aria-controls="sidebarMenu"
+            >
+              <span>&#x25BC;</span> Menú
+            </button>
+            <div class="collapse d-md-block" id="sidebarMenu">
+              <h5 class="mb-3">Temas</h5>
+              <ul class="list-group border-0">
+                <li class="list-group-item">
+                  <p class="fw-bold">HTML</p>
+                  <ul class="list-unstyled">
+                    <DocsLink topic="html" />
+                  </ul>
+                </li>
+                <li class="list-group-item">
+                  <p class="fw-bold">Astro</p>
+                  <ul class="list-unstyled">
+                    <DocsLink topic="astro" />
+                  </ul>
+                </li>
+                <li class="list-group-item">
+                  <p class="fw-bold">CSS</p>
+                  <ul class="list-unstyled">
+                    <DocsLink topic="css" />
+                  </ul>
+                </li>
+                <li class="list-group-item">
+                  <p class="fw-bold">JavaScript</p>
+                  <ul class="list-unstyled">
+                    <DocsLink topic="javascript" />
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          <main class="col-md-6">
+            <Content />
+          </main>
+
+          <!-- Información Adicional solo visible en pantallas grandes -->
+          <aside class="col-md-3 mb-3 d-none d-md-block" style="width:250px">
+            <h5 class="mb-3">Información Adicional</h5>
+            <ul class="list-group border-0">
+              <li class="list-group-item"></li>
+              <li class="list-group-item"></li>
+              <li class="list-group-item"></li>
+              <li class="list-group-item"></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+
+      <Footer />
+    <!-- Script de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/fast-bootstrap@latest/dist/js/fast-bootstrap.bundle.min.js"></script>
+</body>
+</html>

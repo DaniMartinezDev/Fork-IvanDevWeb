@@ -1,0 +1,31 @@
+---
+// Importar colecciones y la función de formateo de fechas
+import { getCollection, type CollectionEntry } from "astro:content";
+
+// Recibir el prop 'topic'
+export const props = ['topic'];
+
+const docsEntries: CollectionEntry<"docs">[] = await getCollection("docs");
+
+// Filtrar los documentos según el 'topic' recibido
+const filteredDocs = docsEntries.filter(doc => doc.data.topic === Astro.props.topic);
+
+// Ordenar los artículos del más antiguo al más reciente
+filteredDocs.sort((a, b) => new Date(a.data.createdAt).getTime() - new Date(b.data.createdAt).getTime());
+---
+
+<ul>
+  {
+    filteredDocs.length > 0 ? (
+      filteredDocs.map((d) => (
+        <li>
+          <a class="text-decoration-none text-primary" href={`/docs/${d.slug}`}>
+            {d.data.title}
+          </a>
+        </li>
+      ))
+    ) : (
+      <li>No hay documentos</li>
+    )
+  }
+</ul>

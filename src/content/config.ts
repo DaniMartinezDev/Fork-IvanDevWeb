@@ -11,6 +11,20 @@ const articlesCollection = defineCollection({
   }),
 });
 
+const docsCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    createdAt: z.date(),
+    updatedAt: z.date(),
+    topic: z.string(),
+  }),
+});
+
 export const collections = {
   posts: articlesCollection,
+};
+
+export const collectionsDocs = {
+  docs: docsCollection,
 };
