@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar.astro";
 import DocsLink from "../../components/DocsLink.astro";
 import Footer from '../../components/Footer.astro';
 import "../../css/styles.css";
+import "../../js/theme-mode.js"
 
 export async function getStaticPaths() {
   const docsEntries: CollectionEntry<"docs">[] = await getCollection("docs");
@@ -101,6 +102,5 @@ const formattedDate = new Intl.DateTimeFormat('es-MX', {
       <Footer />
     <!-- Script de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/fast-bootstrap@latest/dist/js/fast-bootstrap.bundle.min.js"></script>
-    <script src="../../js/theme-mode.js"></script>
 </body>
 </html>
