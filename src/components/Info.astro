@@ -1,14 +1,17 @@
-<ul class="nav nav-fill nav-tabs w-50 mx-auto" role="tablist">
-    <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="fill-tab-0" data-bs-toggle="tab" href="#fill-tabpanel-0" role="tab" aria-controls="fill-tabpanel-0" aria-selected="true">Mis Conocimientos</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" id="fill-tab-1" data-bs-toggle="tab" href="#fill-tabpanel-1" role="tab" aria-controls="fill-tabpanel-1" aria-selected="false">Mis Proyectos</a>
-    </li>
-    <li class="nav-item" role="presentation">
-        <a class="nav-link" id="fill-tab-1" data-bs-toggle="tab" href="#fill-tabpanel-2" role="tab" aria-controls="fill-tabpanel-2" aria-selected="false">Tecnologias</a>
-      </li>
-  </ul>
+<div class="d-flex justify-content-center mt-4">
+    <ul class="nav nav-tabs w-50 w-sm-100 flex-column flex-sm-row" role="tablist">
+        <li class="nav-item flex-fill" role="presentation">
+          <a class="nav-link text-center" data-bs-toggle="tab" href="#fill-tabpanel-1" role="tab"> Proyectos </a>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <a class="nav-link active text-center" data-bs-toggle="tab" href="#fill-tabpanel-0" role="tab"> Mis Conocimientos </a>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <a class="nav-link text-center" data-bs-toggle="tab" href="#fill-tabpanel-2" role="tab">Tecnologías </a>
+        </li>
+    </ul>
+</div>
+
   <div class="tab-content pt-5" id="tab-content">
     <div class="tab-pane active" id="fill-tabpanel-0" role="tabpanel" aria-labelledby="fill-tab-0">
         <section class="py-lg-14 py-8">
@@ -16,7 +19,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-md-12 col-12">
                         <div class="text-center mb-8">
-                            <span class="text-warning ls-md text-uppercase fw-semibold">¿Qué lenguajes conoces?</span>
+                            <span class="text-primary ls-md text-uppercase fw-semibold">¿Qué lenguajes conoces?</span>
                             <p class="lead px-8">Aquí abajo están los lenguajes que conozco.</p>
                         </div>
                     </div>
@@ -81,7 +84,7 @@
                     <div class="col-lg-6 col-md-12 col-12">
                         <!-- heading -->
                         <div class="text-center mb-8">
-                            <span class="text-warning ls-md text-uppercase fw-semibold">¿Cuáles son tus proyectos?</span>
+                            <span class="text-primary ls-md text-uppercase fw-semibold">¿Cuáles son tus proyectos?</span>
                             <p class="lead px-8">Aquí abajo están mis proyectos</p>
                         </div>
                     </div>
@@ -138,7 +141,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-6 col-md-12 col-12">
                             <div class="text-center mb-8">
-                                <span class="text-warning ls-md text-uppercase fw-semibold">Tecnologías Utilizadas</span>
+                                <span class="text-primary ls-md text-uppercase fw-semibold">Tecnologías Utilizadas</span>
                                 <p class="lead px-8">Aquí abajo están las tecnologías utilizadas en este sitio web</p>
                             </div>
                         </div>
@@ -186,10 +189,11 @@
     .card {
         transition: all 0.3s ease-out;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: none;
     }
 
     .card:hover {
-        transform: rotate(-3deg) scale(1.05);
+        transform: scale(1.1);
     }
 
     .language-item {
@@ -220,7 +224,7 @@
     font-size: 14px;
     margin-top: 10px;
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(-20px);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
