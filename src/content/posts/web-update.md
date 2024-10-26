@@ -1,9 +1,10 @@
 ---
 title: "¡Documentacion Disponible!"
 image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDymuL3ZhgYQxc7YlS-Gc5cYjd-_pFSZQetA&s"
-description: "Nos complace anunciar que muy pronto estarán disponibles los documentos de nuestra plataforma...."
+description: "Nos complace anunciar que ya están disponibles los documentos de nuestra plataforma..."
 createdAt: 2024-10-22T21:52:00.000Z
 updatedAt: 2024-10-24T22:02:00.000Z
+author: "Iván FX"
 ---
 
 ## Documentación Disponible

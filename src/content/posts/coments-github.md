@@ -4,6 +4,7 @@ image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5fTvBqEpyLmHNzZVx
 description: "Utterances es un sistema de comentarios ligero que utiliza los Issues de GitHub para gestionar comentarios en tu sitio web..."
 createdAt: 2024-10-23T22:13:29.000Z
 updatedAt: 2024-10-23T22:13:29.000Z
+author: "Iván FX"
 ---
 #### ¿Cómo puedo añadir comentarios de GitHub a mis artículos o cualquier código HTML, PHP y Astro usando Utterances?
 

@@ -1,9 +1,11 @@
 ---
 import Navbar from "../components/navbar.astro"
+import About from "../components/about.astro"
+import Footer from "../components/Footer.astro"
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +15,8 @@ import Navbar from "../components/navbar.astro"
 <body>
     <Navbar/>
     <div class="text-center">
-        <h1>Ivan FX</h1>
+        <About/>
+        <Footer/>
     </div>
 </body>
 </html>
