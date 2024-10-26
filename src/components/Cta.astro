@@ -1,17 +1,45 @@
 <section class="cta bg-light-subtle py-5" style="background-image: url(https://geeksui.codescandy.com/geeks/assets/images/background/gradient-bg.png); background-repeat: no-repeat; background-size: cover; background-position: center;">
     <div class="container text-center">
-      <h2>¿Listo para comenzar tu proyecto con nosotros?</h2>
-      <p class="lead">No importa el tamaño de tu proyecto, estamos aquí para ayudarte a alcanzar tus metas.</p>
-      <a href="/contacto.php" class="btn btn-lg btn-outline-default">Contáctanos Hoy</a>
+      <h2 class="font-weight-bold mb-4">¿Listo para comenzar tu proyecto con nosotros?</h2>
+      <p class="lead mb-4">No importa el tamaño de tu proyecto, estamos aquí para ayudarte a alcanzar tus metas.</p>
+      <a href="#" class="btn btn-lg btn-primary">Contáctanos Hoy</a>
     </div>
-</section>  
-<style>
+  </section>
+  
+  <style>
+    .cta {
+      position: relative;
+      overflow: hidden; /* Asegura que el contenido no sobresalga */
+      padding: 60px 0; /* Aumenta el espaciado vertical */
+    }
+  
     .btn {
-        transition: all 0.3s ease-out; /* Transición suave para el efecto de zoom */
+      transition: transform 0.3s ease, background-color 0.3s ease; /* Transiciones suaves */
+      padding: 12px 30px; /* Aumenta el padding para un botón más grande */
+      border-radius: 30px; /* Bordes redondeados para el botón */
+      background: linear-gradient(45deg, #007bff, #0056b3); /* Degradado en el botón */
+      color: white; /* Color del texto del botón */
+      border: none; /* Sin borde */
     }
-
+  
     .btn:hover {
-        transform: scale(1.05) rotate(-2deg);
+      transform: scale(1.1) rotate(-2deg); /* Efecto de zoom más pronunciado */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra en hover */
+      color: white;
     }
-
-</style>
+  
+    h2 {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para mejorar la legibilidad */
+    }
+    
+    p {
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para el texto del párrafo */
+    }
+  
+    @media (max-width: 576px) {
+      .cta {
+        padding: 40px 0; /* Ajuste del espaciado en pantallas pequeñas */
+      }
+    }
+  </style>
+  

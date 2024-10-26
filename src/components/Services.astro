@@ -15,9 +15,14 @@ import Card from './Card.astro'
 
 <style>
   .btn {
-    transition: transform 0.3s ease; /* Transición suave para el efecto de zoom */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    background: linear-gradient(45deg, #007bff, #0056b3); /* Degradado para el botón */
+    border: none; /* Sin borde */
+    color: white;
   }
+
   .btn:hover {
-    transform: scale(1.05) rotate(-2deg); /* Efecto de zoom al pasar el mouse */
+    transform: scale(1.05) rotate(-2deg);
+    color: white;
   }
 </style>
