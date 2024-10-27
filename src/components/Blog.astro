@@ -1,5 +1,6 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
+import SearchBar from '../components/SearchBar.astro';
 
 function formatDate(dateObj: Date): string {
   const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' };
@@ -10,9 +11,13 @@ const blogEntries: CollectionEntry<"posts">[] = await getCollection("posts");
 blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime());
 ---
 
-<div class="row">
+<p class="text-center text-muted">Descubre los últimos artículos y novedades sobre desarrollo web y tecnología</p>
+<SearchBar id="search" placeholder="Buscar posts..." />
+
+<br><br>
+<div id="posts-container" class="row">
   {blogEntries.map((b) => (
-    <div class="col-md-4 col-sm-6 col-12 mb-4">
+    <div class="col-md-4 col-sm-6 col-12 mb-4 post-card" data-title={b.data.title.toLowerCase()} data-date={b.data.createdAt.getTime()}>
       <div class="card h-100">
         <div class="card-header d-flex align-items-center justify-content-center">
           <div class="text-center">
@@ -31,29 +36,79 @@ blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime
   ))}
 </div>
 
+<p id="no-results" class="text-center text-gray-600 dark:text-gray-400" style="display: none; mt-8;">
+  No se encontraron posts que coincidan con tu búsqueda.
+</p>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const searchInput = document.getElementById('search') as HTMLInputElement;
+      const sortSelect = document.getElementById('sortSelect') as HTMLSelectElement;
+      const postCards = document.querySelectorAll('.post-card') as NodeListOf<HTMLElement>;
+      const postsContainer = document.getElementById('posts-container') as HTMLElement;
+      const noResults = document.getElementById('no-results') as HTMLElement;
+
+      function filterPosts(searchTerm: string) {
+          searchTerm = searchTerm.toLowerCase().trim();
+          let hasVisiblePosts = false;
+
+          postCards.forEach((card) => {
+              const title = card.getAttribute('data-title') || '';
+              const isVisible = title.includes(searchTerm);
+              card.style.display = isVisible ? 'block' : 'none';
+              if (isVisible) hasVisiblePosts = true;
+          });
+
+          noResults.style.display = hasVisiblePosts ? 'none' : 'block';
+      }
+
+      function sortPosts(order: string) {
+          const sortedPosts = Array.from(postCards).sort((a, b) => {
+              const dateA = parseInt(a.getAttribute('data-date') || '0', 10);
+              const dateB = parseInt(b.getAttribute('data-date') || '0', 10);
+              return order === 'newest' ? dateB - dateA : dateA - dateB;
+          });
+
+          // Vacía el contenedor y vuelve a agregar los posts en el nuevo orden
+          postsContainer.innerHTML = '';
+          sortedPosts.forEach(post => postsContainer.appendChild(post));
+      }
+
+      searchInput.addEventListener('input', (e) => {
+          const target = e.target as HTMLInputElement;
+          filterPosts(target.value);
+      });
+
+      sortSelect.addEventListener('change', (e) => {
+          const target = e.target as HTMLSelectElement;
+          sortPosts(target.value);
+      });
+  });
+</script>
+
 <style>
   .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-left: 15px;
-    border-radius: 12px; /* Bordes redondeados */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más suave */
-    overflow: hidden; /* Para evitar que el contenido sobresalga */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
     border: none;
   }
 
   .card:hover {
     transform: scale(1.03);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el mouse */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
   }
 
   .card-body {
-    min-height: 150px; /* Ajusta según el tamaño deseado */
+    min-height: 150px;
   }
 
   .btn {
     transition: transform 0.3s ease, background-color 0.3s ease;
-    background: linear-gradient(45deg, #007bff, #0056b3); /* Degradado para el botón */
-    border: none; /* Sin borde */
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    border: none;
     color: white;
   }
 
@@ -65,7 +120,7 @@ blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime
   @media (max-width: 576px) {
     .col-12 {
       justify-content: center;
-      margin-left: 9px;
+      margin-left: 12px;
     }
   }
 </style>

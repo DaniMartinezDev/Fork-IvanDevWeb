@@ -1,0 +1,57 @@
+---
+// SearchBar.astro
+interface Props {
+  placeholder?: string;
+  id: string;
+}
+
+const { placeholder = "Buscar...", id } = Astro.props;
+---
+
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center my-4 flex-wrap search-sort-container">
+    <div class="position-relative search-container flex-grow-1 me-2">
+      <input 
+        type="text" 
+        id={id}
+        placeholder={placeholder}
+        class="form-control rounded-pill pe-5" 
+        style="box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);"
+      />
+      <svg class="position-absolute top-50 translate-middle-y end-0 me-3" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85a1.007 1.007 0 0 0-.115-.098z"/>
+      </svg>
+    </div>
+
+    <select id="sortSelect" class="form-select rounded-pill w-auto ms-2">
+      <option value="newest">Más reciente</option>
+      <option value="oldest">Menos reciente</option>
+    </select>
+  </div>
+</div>
+
+<style>
+  .search-sort-container {
+    max-width: 100%;
+  }
+
+  .search-container {
+    max-width: 24rem;
+  }
+
+  /* Ajustes para dispositivos pequeños */
+  @media (max-width: 576px) {
+    .search-sort-container {
+      flex-wrap: nowrap; /* Mantiene el input y el select en la misma fila */
+      gap: 0.5rem; /* Añade un espacio pequeño entre el input y el select */
+    }
+
+    .search-container {
+      max-width: 100%;
+    }
+
+    #sortSelect {
+      flex-shrink: 0; /* Mantiene el ancho del select sin reducirse */
+    }
+  }
+</style>
