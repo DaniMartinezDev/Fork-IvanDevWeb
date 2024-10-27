@@ -10,11 +10,8 @@ function formatDate(dateObj: Date): string {
 const blogEntries: CollectionEntry<"posts">[] = await getCollection("posts");
 blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime());
 ---
-
-<p class="text-center text-muted">Descubre los últimos artículos y novedades sobre desarrollo web y tecnología</p>
 <SearchBar id="search" placeholder="Buscar posts..." />
-
-<br><br>
+<br><br><br><br>
 <div id="posts-container" class="row">
   {blogEntries.map((b) => (
     <div class="col-md-4 col-sm-6 col-12 mb-4 post-card" data-title={b.data.title.toLowerCase()} data-date={b.data.createdAt.getTime()}>
@@ -62,18 +59,6 @@ blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime
           noResults.style.display = hasVisiblePosts ? 'none' : 'block';
       }
 
-      function sortPosts(order: string) {
-          const sortedPosts = Array.from(postCards).sort((a, b) => {
-              const dateA = parseInt(a.getAttribute('data-date') || '0', 10);
-              const dateB = parseInt(b.getAttribute('data-date') || '0', 10);
-              return order === 'newest' ? dateB - dateA : dateA - dateB;
-          });
-
-          // Vacía el contenedor y vuelve a agregar los posts en el nuevo orden
-          postsContainer.innerHTML = '';
-          sortedPosts.forEach(post => postsContainer.appendChild(post));
-      }
-
       searchInput.addEventListener('input', (e) => {
           const target = e.target as HTMLInputElement;
           filterPosts(target.value);
@@ -81,7 +66,6 @@ blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime
 
       sortSelect.addEventListener('change', (e) => {
           const target = e.target as HTMLSelectElement;
-          sortPosts(target.value);
       });
   });
 </script>
@@ -117,10 +101,15 @@ blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime
     color: white;
   }
 
-  @media (max-width: 576px) {
-    .col-12 {
-      justify-content: center;
-      margin-left: 8px;
+  /* Estilos para dispositivos móviles y tablets */
+  @media (max-width: 768px) {
+    .row {
+      justify-content: center; /* Centrar las columnas */
+    }
+
+    .post-card {
+      margin-left: 0; /* Eliminar margen lateral */
+      width: 90%; /* Hacer que las tarjetas ocupen el 90% del ancho */
     }
   }
 </style>

@@ -35,25 +35,25 @@ blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime
   .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-left: 15px;
-    border-radius: 12px; /* Bordes redondeados */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más suave */
-    overflow: hidden; /* Para evitar que el contenido sobresalga */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
     border: none;
   }
 
   .card:hover {
     transform: scale(1.03);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el mouse */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
   }
 
   .card-body {
-    min-height: 150px; /* Ajusta según el tamaño deseado */
+    min-height: 150px;
   }
 
   .btn {
     transition: transform 0.3s ease, background-color 0.3s ease;
-    background: linear-gradient(45deg, #007bff, #0056b3); /* Degradado para el botón */
-    border: none; /* Sin borde */
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    border: none;
     color: white;
   }
 
@@ -62,10 +62,15 @@ blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime
     color: white;
   }
 
-  @media (max-width: 576px) {
-    .col-12 {
-      justify-content: center;
-      margin-left: 9px;
+  /* Estilos para dispositivos móviles y tablets */
+  @media (max-width: 768px) {
+    .row {
+      justify-content: center; /* Centrar las columnas */
+    }
+
+    .post-card {
+      margin-left: 0; /* Eliminar margen lateral */
+      width: 90%; /* Hacer que las tarjetas ocupen el 90% del ancho */
     }
   }
 </style>

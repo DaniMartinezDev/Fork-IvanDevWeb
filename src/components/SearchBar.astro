@@ -9,49 +9,56 @@ const { placeholder = "Buscar...", id } = Astro.props;
 ---
 
 <div class="container">
-  <div class="d-flex justify-content-between align-items-center my-4 flex-wrap search-sort-container">
-    <div class="position-relative search-container flex-grow-1 me-2">
+  <div class="d-flex flex-column align-items-center my-4 search-sort-container">
+    <div class="position-relative w-100 d-flex justify-content-center">
       <input 
         type="text" 
         id={id}
         placeholder={placeholder}
-        class="form-control rounded-pill pe-5" 
-        style="box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);"
+        class="form-control rounded-pill pe-5 search-input" 
       />
-      <svg class="position-absolute top-50 translate-middle-y end-0 me-3" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85a1.007 1.007 0 0 0-.115-.098z"/>
-      </svg>
     </div>
-
-    <select id="sortSelect" class="form-select rounded-pill w-auto ms-2">
-      <option value="newest">Más reciente</option>
-      <option value="oldest">Menos reciente</option>
-    </select>
   </div>
 </div>
 
 <style>
+  /* Contenedor principal */
   .search-sort-container {
-    max-width: 100%;
+    max-width: 800px; /* Ancho máximo para el contenedor */
+    width: 100%;
+    margin: 0 auto; /* Centrado horizontal */
+    text-align: center; /* Centrar contenido dentro del contenedor */
   }
 
-  .search-container {
-    max-width: 24rem;
+  /* Input de búsqueda */
+  .search-input {
+    width: 100%; /* Ancho completo del contenedor */
+    max-width: 500px; /* Ancho máximo general para el input */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
   }
 
-  /* Ajustes para dispositivos pequeños */
+  .search-input:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+
+  /* Ajustes para pantallas pequeñas */
   @media (max-width: 576px) {
+    .search-input {
+      max-width: 80%; /* Cambiar a un 80% en pantallas pequeñas */
+    }
+  }
+
+  /* Ajustes para pantallas grandes (PC) */
+  @media (min-width: 992px) {
     .search-sort-container {
-      flex-wrap: nowrap; /* Mantiene el input y el select en la misma fila */
-      gap: 0.5rem; /* Añade un espacio pequeño entre el input y el select */
+      max-width: 800px; /* Ajusta según el ancho deseado */
     }
 
-    .search-container {
-      max-width: 100%;
-    }
-
-    #sortSelect {
-      flex-shrink: 0; /* Mantiene el ancho del select sin reducirse */
+    .search-input {
+      max-width: calc(100% - 200px); /* Deja espacio para el select */
+      flex-grow: 1; /* Hace que el input crezca más */
     }
   }
 </style>
