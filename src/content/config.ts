@@ -9,6 +9,7 @@ const articlesCollection = defineCollection({
     image: z.string(),
     description: z.string(),
     author: z.string(),
+    publish: z.boolean(),
   }),
 });
 

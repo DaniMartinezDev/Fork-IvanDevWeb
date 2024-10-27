@@ -8,12 +8,15 @@ function formatDate(dateObj: Date): string {
 }
 
 const blogEntries: CollectionEntry<"posts">[] = await getCollection("posts");
-blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime());
+// Filtrar solo los artículos que están publicados
+const publishedBlogEntries = blogEntries.filter(b => b.data.publish);
+publishedBlogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime());
 ---
+
 <SearchBar id="search" placeholder="Buscar posts..." />
 <br><br><br><br>
 <div id="posts-container" class="row">
-  {blogEntries.map((b) => (
+  {publishedBlogEntries.map((b) => (
     <div class="col-md-4 col-sm-6 col-12 mb-4 post-card" data-title={b.data.title.toLowerCase()} data-date={b.data.createdAt.getTime()}>
       <div class="card h-100">
         <div class="card-header d-flex align-items-center justify-content-center">
@@ -40,7 +43,6 @@ blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime
 <script>
   document.addEventListener('DOMContentLoaded', function () {
       const searchInput = document.getElementById('search') as HTMLInputElement;
-      const sortSelect = document.getElementById('sortSelect') as HTMLSelectElement;
       const postCards = document.querySelectorAll('.post-card') as NodeListOf<HTMLElement>;
       const postsContainer = document.getElementById('posts-container') as HTMLElement;
       const noResults = document.getElementById('no-results') as HTMLElement;
@@ -62,10 +64,6 @@ blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime
       searchInput.addEventListener('input', (e) => {
           const target = e.target as HTMLInputElement;
           filterPosts(target.value);
-      });
-
-      sortSelect.addEventListener('change', (e) => {
-          const target = e.target as HTMLSelectElement;
       });
   });
 </script>

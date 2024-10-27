@@ -76,17 +76,35 @@ a:hover {
 table {
     border-collapse: collapse;
     width: 100%;
-  }
-  
+}
+
 td, th {
     border: 1px solid #ddd;
     padding: 8px;
 }
-  
+
 th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .post-conte {
+        overflow-x: auto; /* Permite el desplazamiento horizontal */
+    }
+  
+    table {
+        display: block; /* Cambia a bloque para el desplazamiento */
+        overflow-x: auto; /* Agrega desplazamiento horizontal */
+        white-space: nowrap; /* Evita el ajuste de texto */
+    }
+
+    th, td {
+        display: inline-block; /* Hace que los elementos sean inline */
+        width: auto; /* Ancho automático */
+    }
 }
 
 .gallery-container {
@@ -121,4 +139,19 @@ th {
 
 .gallery-item:hover img {
     transform: scale(1.1);
+}
+
+/* Sidebar para Temas */
+#sidebarMenu {
+    position: sticky; /* Mantiene el sidebar fijo */
+    top: 110px; /* Distancia desde el top de la ventana para que no sea tapado por el navbar */
+}
+
+.info-sidebar {
+    position: sticky; /* Mantiene el sidebar fijo */
+    top: 110px; /* Distancia desde el top de la ventana para que no sea tapado por el navbar */
+    max-height: calc(100vh - 80px); /* Altura máxima de la ventana menos la altura del navbar */
+    overflow-y: auto; /* Permite desplazamiento vertical si el contenido es mayor */
+    padding: 1rem; /* Agrega un poco de padding */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
 }

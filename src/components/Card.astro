@@ -1,4 +1,4 @@
----
+--- 
 import { getCollection, type CollectionEntry } from "astro:content";
 
 function formatDate(dateObj: Date): string {
@@ -7,12 +7,14 @@ function formatDate(dateObj: Date): string {
 }
 
 const blogEntries: CollectionEntry<"posts">[] = await getCollection("posts");
-blogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime());
+// Filtrar solo los artículos que están publicados
+const publishedBlogEntries = blogEntries.filter(b => b.data.publish);
+publishedBlogEntries.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime());
 ---
 
-<div class="row">
-  {blogEntries.slice(0, 3).map((b) => (
-    <div class="col-md-4 col-sm-6 col-12 mb-4">
+<div id="posts-container" class="row">
+  {publishedBlogEntries.slice(0, 3).map((b) => (
+    <div class="col-md-4 col-sm-6 col-12 mb-4 post-card" data-title={b.data.title.toLowerCase()} data-date={b.data.createdAt.getTime()}>
       <div class="card h-100">
         <div class="card-header d-flex align-items-center justify-content-center">
           <div class="text-center">
