@@ -126,5 +126,9 @@ author: "Iván FX"
 1. Aplica estilos CSS personalizados a tu blog o usa frameworks de estilo como TailwindCSS o Bootstrap para mejorar el diseño.
 2. Revisa y ajusta los detalles finales, y ¡ya tendrás tu blog listo para publicar!
 
-### Resumen
-Con estos pasos, tienes un blog básico pero completamente funcional usando Astro. Ahora, puedes expandirlo con funcionalidades adicionales, como un sistema de comentarios, paginación, o etiquetas para categorizar tus artículos.
+<div class="alert alert-primary" role="alert">
+  <h6 class="alert-heading">Info</h6>
+  <p class="mb-2">Parte del contenido de este artículo fue sacado de la documentación de astro</p>
+  <hr>
+  <a class="fw-semibold fs-sm" href="https://docs.astro.build/es/tutorials/add-content-collections/#c%C3%B3digo-de-construir-un-blog">Ir a la documentacion de astro</a>
+</div>
