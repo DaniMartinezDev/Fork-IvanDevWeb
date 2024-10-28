@@ -8,8 +8,6 @@ publish: true
 author: "Iván FX"
 ---
 
-## Construye tu primer blog con Astro
-
 ### Paso 1: Configura tu proyecto Astro
 1. Abre la consola de comandos en tu PC.
 2. Navega a la carpeta donde deseas crear tu proyecto, por ejemplo:
