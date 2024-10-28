@@ -38,61 +38,62 @@ const formattedDate = new Intl.DateTimeFormat('es-MX', {
     <Navbar />
     
     <div class="container my-5">
-      <div class="row">
+        <div class="row">
           <aside class="col-md-3 mb-3">
-              <!-- Botón para alternar el menú en dispositivos móviles -->
-              <button
-                  class="btn btn-outline-primary d-md-none mb-3"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#sidebarMenu"
-                  aria-expanded="false"
-                  aria-controls="sidebarMenu"
-              >
-                  <span>&#x25BC;</span> Menú
-              </button>
-              <div class="collapse d-md-block" id="sidebarMenu">
-                  <h5 class="mb-3">Temas</h5>
-                  <ul class="list-group border-0">
-                      <li class="list-group-item">
-                          <p class="fw-bold">HTML</p>
-                          <ul class="list-unstyled">
-                              <DocsLink topic="html" />
-                          </ul>
-                      </li>
-                      <li class="list-group-item">
-                          <p class="fw-bold">Astro</p>
-                          <ul class="list-unstyled">
-                              <DocsLink topic="astro" />
-                          </ul>
-                      </li>
-                      <li class="list-group-item">
-                          <p class="fw-bold">CSS</p>
-                          <ul class="list-unstyled">
-                              <DocsLink topic="css" />
-                          </ul>
-                      </li>
-                      <li class="list-group-item">
-                          <p class="fw-bold">JavaScript</p>
-                          <ul class="list-unstyled">
-                              <DocsLink topic="javascript" />
-                          </ul>
-                      </li>
+            <!-- Botón para alternar el menú en dispositivos móviles -->
+            <button
+              class="btn btn-outline-primary d-md-none mb-3"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#sidebarMenu"
+              aria-expanded="false"
+              aria-controls="sidebarMenu"
+            >
+              <span>&#x25BC;</span> Menú
+            </button>
+            <div class="collapse d-md-block" id="sidebarMenu">
+              <h5 class="mb-3">Temas</h5>
+              <ul class="list-group border-0">
+                <li class="list-group-item">
+                  <p class="fw-bold">HTML</p>
+                  <ul class="list-unstyled">
+                    <DocsLink topic="html" />
                   </ul>
-              </div>
+                </li>
+                <li class="list-group-item">
+                  <p class="fw-bold">Astro</p>
+                  <ul class="list-unstyled">
+                    <DocsLink topic="astro" />
+                  </ul>
+                </li>
+                <li class="list-group-item">
+                  <p class="fw-bold">CSS</p>
+                  <ul class="list-unstyled">
+                    <DocsLink topic="css" />
+                  </ul>
+                </li>
+                <li class="list-group-item">
+                  <p class="fw-bold">JavaScript</p>
+                  <ul class="list-unstyled">
+                    <DocsLink topic="javascript" />
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </aside>
           <main class="col-md-6">
-              <Content />
+            <Content />
           </main>
 
           <!-- Información Adicional solo visible en pantallas grandes -->
-          <aside class="col-md-3 mb-3 d-none d-md-block info-sidebar" style="position: sticky;">
+          <aside class="col-md-3 mb-3 d-none d-md-block info-sidebar" style="width:250px">
             <h5 class="mb-3">Información Adicional</h5>
             <ul class="list-group border-0">
-            </ul>
-        </aside>
+              <li class="list-group-item"></li>
+              <li class="list-group-item"></li>
+          </aside>
+        </div>
       </div>
-  </div>
 
       <Footer />
     <!-- Script de Bootstrap -->
